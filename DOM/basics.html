@@ -24,9 +24,13 @@
 
 
         .container {
+            display: flex;
+            position: relative;
             border-color: chartreuse;
             border-width: 2px;
             border-style: solid;
+            overflow: hidden;
+            height: 400px;
         }
 
         .box {
@@ -38,8 +42,11 @@
             height: 200px;
             margin-top: 40px;
             margin-right: 20px;
-            transition: transform 1s ease-in-out;
+            transition: left 1s ease-in-out,transform 1s ease;
+            transform: scale(1);
+            z-index: 2;
         }
+
 
         .bg-red {
             background-color: red;
@@ -68,7 +75,7 @@
         click me
     </button>
 
-    <div id="container" class="flex container">
+    <div id="container" class="container">
         <div id="box1" class="box bg-red">
             <h1>1</h1>
         </div>
@@ -78,6 +85,11 @@
         <div id="box3" class="box bg-blue">
             <h1>3</h1>
         </div>
+    </div>
+
+
+    <div>
+
     </div>
     
 
@@ -100,6 +112,8 @@
         let box_list = document.getElementsByClassName("box");
 
         let box_arr = convert(box_list);
+
+        box_arr[1].style.transform = "scale(1.2)";
     
         let left = ["0","240","480"];
 
@@ -109,37 +123,10 @@
 
         button.onclick = () => {
 
-            /*
-            num = rotate(num);
-           color = rotate(color);
-           box = rotate(box);
-           */
-
-           box_arr[0].style.left = "240px";
-           box_arr[1].style.left = "480px";
-           box_arr[2].style.left = "0px";
-            
+           console.log(box_arr);
            box_arr = gallery_rotate(box_arr);
-           console.log(box_arr)
            console.log("1")
 
-
-
-        /*
-           setTimeout(function() {
-              container.innerHTML = ` <div id=${box[0]} class="box bg-${color[0]}">
-                                        <h1>${num[0]}</h1>
-                                    </div>
-                                    <div id=${box[1]} class="box bg-${color[1]}">
-                                        <h1>${num[1]}</h1>
-                                    </div>
-                                    <div id=${box[2]} class="box bg-${color[2]}">
-                                        <h1>${num[2]}</h1>
-                                    </div>`
-                 console.log("2")                        
-                                            
-            }, delayInMilliseconds);
-            */
 
            
             }
@@ -147,13 +134,17 @@
         let gallery = [1,2,3];
 
         animate = (arr) => {
-            console.log(`move ${arr[0].id} to right 220px`)
-            arr[0].style.transform = "translateX(220px)";
-            console.log(`move ${arr[1].id} to right 220px`)
-            arr[1].style.transform = "translateX(220px)";
-            console.log(`move ${arr[2].id} to left -440px`)
-            arr[2].style.transform = "translateX(-440px)";
+           // change z-index
+           arr[2].style.zIndex = "1";
+           arr[0].style.zIndex = "2";
+           // animate
+           arr[0].style.left = "240px";
+           arr[0].style.transform = "scale(1.2)";
+           arr[1].style.left = "480px";
+           arr[1].style.transform = "scale(1)";
+           arr[2].style.left = "0px";
         }
+
 
         rotate = (arr) => {
             let last_element = arr.pop();
