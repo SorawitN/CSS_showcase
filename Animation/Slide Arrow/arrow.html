@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --blue:#2D9CDB;
+            --sea:#56CCF2;
+            --orange:#F2994A;
+        }
+
+        svg {
+            cursor: pointer;
+        }
+
+        #Blue {
+            fill: var(--blue);
+        }
+
+        #Orange {
+            fill: var(--orange);
+        }
+
+        #Blue_2, 
+        #Sea, 
+        #Orange {
+            transition: all 1s ease;
+        }
+
+        #Blue_2 {
+            transform: translateX(-100%);
+        }
+
+        svg:hover #Orange {
+            transform: translateX(40%);
+            opacity: 0;
+        }
+
+        svg:hover #Sea {
+            transform: translateX(20%);
+        }
+
+        svg:hover #Blue_2 {
+            transform: translateX(0%);
+        }
+
+
+    </style>
+</head>
+<body>
+    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="Triangle">
+        <g id="Blue">
+            <path id="Blue_2" opacity="0.8" d="M53 55.268C54.3333 56.0378 54.3333 57.9623 53 58.7321L18.5 78.6506C17.1667 79.4204 15.5 78.4582 15.5 76.9186L15.5 37.0814C15.5 35.5418 17.1667 34.5796 18.5 35.3494L53 55.268Z" />
+            <path id="Sea" opacity="0.8" d="M53 55.268C54.3333 56.0378 54.3333 57.9623 53 58.7321L18.5 78.6506C17.1667 79.4204 15.5 78.4582 15.5 76.9186L15.5 37.0814C15.5 35.5418 17.1667 34.5796 18.5 35.3494L53 55.268Z"/>
+        </g>
+        <path id="Orange" opacity="0.8" d="M72 55.268C73.3333 56.0378 73.3333 57.9623 72 58.7321L37.5 78.6506C36.1667 79.4204 34.5 78.4582 34.5 76.9186L34.5 37.0814C34.5 35.5418 36.1667 34.5796 37.5 35.3494L72 55.268Z"/>
+    </g>
+</svg>
+
+<script>
+
+    const svg = document.getElementById('triangle');
+
+    svg.onclick = (e) => {
+        const colors = ['red', 'green', 'blue', 'orange', 'pink', 'purple'];
+        const rando = () => colors[Math.floor(Math.random() * colors.length)];
+        document.documentElement.style.cssText = `
+        --blue: ${rando()};
+        --orange: ${rando()};
+        `
+    }
+
+</script>
+    
+</body>
+</html>
