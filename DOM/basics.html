@@ -33,8 +33,33 @@
             height: 400px;
         }
 
+
+        .container2 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            position: relative;
+            border-color: chartreuse;
+            border-width: 2px;
+            border-style: solid;
+        }
+
         .box {
             position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            margin-top: 40px;
+            margin-right: 20px;
+            transition: left 1s ease-in-out,transform 1s ease;
+            transform: scale(1);
+            z-index: 2;
+        }
+
+        .box2 {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,6 +88,11 @@
             left: 480px;
         }
 
+        .bg-orange {
+            background-color: orange;
+            left: 10px;
+        }
+
         .flex {
             display: flex;
             flex-direction: row;
@@ -86,6 +116,9 @@
             <h1>3</h1>
         </div>
     </div>
+    <div id="container2" class="container2">
+
+    </div>
 
 
     <div>
@@ -108,6 +141,7 @@
         }
 
         let container = document.getElementById("container");
+        let container2 = document.getElementById("container2");
         let button = document.getElementById("click");
         let box_list = document.getElementsByClassName("box");
 
@@ -123,13 +157,19 @@
 
         button.onclick = () => {
 
+           animate(box_arr);
+           box_arr = rotate(box_arr);
            console.log(box_arr);
-           box_arr = gallery_rotate(box_arr);
-           console.log("1")
+           let t_box = document.createElement("div");
+           let t_h = document.createElement("h1");
+           let text = document.createTextNode("V");
+           t_h.appendChild(text);
+           t_box.classList.add("box2");
+           t_box.classList.add("bg-orange")
+           t_box.appendChild(t_h);
+           container2.appendChild(t_box);
 
-
-           
-            }
+           }
 
         let gallery = [1,2,3];
 
@@ -152,11 +192,6 @@
             return arr;
         }
 
-        gallery_rotate = (arr) => {
-            animate(arr);
-            arr = rotate(arr);
-            return arr;
-        }
     </script>
 </body>
 </html>
