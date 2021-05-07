@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .accodian-box {
+                width:250px;
+                height: 160px;
+                display: grid;
+                grid-template-rows: 1fr 4fr;
+            }
+            .accodian-header {
+                display: grid;
+                grid-template-columns: 5fr 1fr;
+                align-items: center;
+                background-color: #CECECE;
+            }
+            .accodian-header__text {
+                font-weight: 600;
+                font-size: 13px;
+                margin-left: 10px;
+                color: #5E5E5E;
+            }
+            .accodian-body {
+                height: 0px;
+                background-color: #F4F4F4;
+                transition: all 0.3s ease 0s;
+                overflow: hidden;
+            }
+
+            .accodian-body__text {
+                margin:10px;
+                font-weight: 400;
+                font-size: 13px;
+            }
+
+            .accodian-button {
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="accodian-box">
+            <div class="accodian-header">
+                <span class="accodian-header__text">Documentation Included</span>
+                <svg id="js-acc_btn" class="accodian-button" width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2L7.5 7L2 2" stroke="white" stroke-width="3"/>
+                </svg>
+            </div>
+            <div id="js-acc_body" class="accodian-body">
+                <p class="accodian-body__text">Eorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra rhoncus nisi, et luctus purus dignissim pharetra. Suspendisse </p>
+            </div>
+        </div>
+        
+        <script>
+            let acc_btn = document.getElementById("js-acc_btn")
+            let acc_body = document.getElementById("js-acc_body")
+            let acc_btn_press = false
+            
+            acc_btn.onclick = () => {
+                if(!acc_btn_press){
+                    acc_body.style.height = `128px`
+                    acc_btn.innerHTML = `<path d="M2 8L7.5 3L13 8" stroke="white" stroke-width="3"/>`
+                    acc_btn_press = true
+                }else{
+                    acc_body.style.height = `0px`
+                    acc_btn.innerHTML = `<path d="M13 2L7.5 7L2 2" stroke="white" stroke-width="3"/>`
+                    acc_btn_press = false
+                }
+            }
+
+        </script>
+    </body>
+</html>
