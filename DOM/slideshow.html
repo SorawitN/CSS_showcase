@@ -15,21 +15,22 @@
             position: absolute;
             left: calc(50% - 132px);
             margin-right: 50px;
-            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-            transform: scale(1);
-            transition: all 1s ease 0s;
+            filter: blur(2px);
+            /*drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))*/
+            transform: scale(0.8);
+            transition: all 0.5s ease 0s;
         }
 
         .slideshow {
-            display: grid;
+
             border: 1px solid rgb(98, 0, 255);
             height: 401px;
         }
 
         body {
             display: grid;
-            grid-template-columns: 1fr;
-            justify-content: center;
+            grid-template-columns: 100%;
+
         }
 
 
@@ -41,6 +42,7 @@
 
         .btn-group {
             border: 1px solid green;
+            width: 100vw;
             display: flex;
             justify-content: center;
         }
@@ -54,6 +56,12 @@
         <img class="card " src="../image/card.png">
         <img class="card " src="../image/card.png">
         <img class="card " src="../image/card.png">
+        <img class="card " src="../image/card.png">
+        <img class="card " src="../image/card.png">
+        <img class="card " src="../image/card.png">
+        <img class="card " src="../image/card.png">
+        <img class="card " src="../image/card.png">
+
 
 
 
@@ -65,10 +73,10 @@
 
     </div>
     <div class="btn-group">
-        <button id="js-button1">
+        <button id="js-button2">
             left
         </button>
-        <button id="js-button2">
+        <button id="js-button1">
             right
         </button>
         <button id="debug">
