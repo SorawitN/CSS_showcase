@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            * {
+                box-sizing: border-box;
+                margin:0;
+                padding: 0;
+            }
+            .card-container {
+                height: 694px;
+                width: 100vw;
+                background-color: indianred;
+                display: grid;
+                align-items: center;
+            }
+
+            .card-box {
+                position: relative;
+                display: flex;
+                width: fit-content;
+                transition: all 1s ease 0s;
+                left: 0px;
+            }
+
+            .card {
+                margin: 10px;
+            }
+
+            .btn {
+                background-color: transparent;
+                border: none;
+                transition: all 0.1s ease 0s;
+            }
+
+            .btn-shape {
+                transition: all 0.05s ease 0s;
+            }
+
+
+            .btn:hover {
+                transform: scale(1.02);
+            }
+            
+            .btn-shape:active {
+                fill: #005ab9 ;
+            }
+
+            .btn:active {
+                transform: scale(0.95);
+            }
+
+            .btn-container {
+                display: grid;
+                justify-content: center;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="card-container">
+            <div class="card-box" id="js-card-box">
+                <img class="card" src="../image/Card2.png">
+                <img class="card" src="../image/Card2.png">
+                <img class="card" src="../image/Card2.png">
+                <img class="card" src="../image/Card2.png">
+                <img class="card" src="../image/Card2.png">
+
+
+            </div>
+        </div>
+        <div class="btn-container">
+             <div class="btn-box">
+                <button class="btn" id="js-btn-left">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d)">
+                    <circle  class="btn-shape" cx="40" cy="36" r="36" fill="#007AFF"/>
+                        </g>
+                    <path d="M51 58L30.4142 37.4142C29.6332 36.6332 29.6332 35.3668 30.4142 34.5858L51 14" stroke="white" stroke-width="5"/>
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="80" height="80" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 128 0"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="2"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                    </filter>
+                    </defs>
+                    </svg>
+                </button>
+                <button class="btn" id="js-btn-right">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d)">
+                    <circle class="btn-shape" cx="40" cy="36" r="36" transform="rotate(180 40 36)" fill="#007AFF"/>
+                    </g>
+                    <path d="M29 14L49.5858 34.5858C50.3668 35.3668 50.3668 36.6332 49.5858 37.4142L29 58" stroke="white" stroke-width="5"/>
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="80" height="80" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="2"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                    </filter>
+                    </defs>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            let leftButton = document.getElementById("js-btn-left")
+            let rightButton = document.getElementById("js-btn-right");
+
+            let cardHTMLCollection = document.getElementsByClassName("card");
+
+            let cardBox = document.getElementById("js-card-box")
+
+            let offset = 346*(cardHTMLCollection.length/2)
+
+            cardBox.style.left = `calc(50% - ${offset}px)`;
+
+
+            leftButton.onclick = () => {
+                offset = offset - 346;
+                cardBox.style.left = `calc(50% - ${offset}px)`;
+            };
+
+            rightButton.onclick = () => {
+                offset = offset + 346;
+                cardBox.style.left = `calc(50% - ${offset}px)`;
+            };
+
+        </script>
+    </body>
+</html>
